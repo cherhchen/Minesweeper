@@ -6,7 +6,7 @@ private ArrayList <MSButton> mines = new ArrayList <MSButton> ();; //ArrayList o
 
 void setup ()
 {
-    size(400, 400);
+    size(395, 395);
     textAlign(CENTER,CENTER);
     
     // make the manager
@@ -56,11 +56,30 @@ public boolean isWon()
 public void displayLosingMessage()
 {
     //your code here
+    buttons[7][4].setLabel("Y");
+    buttons[7][5].setLabel("O");
+    buttons[7][6].setLabel("U");
+    buttons[7][7].setLabel(" ");
+    buttons[7][8].setLabel("L");
+    buttons[7][9].setLabel("O");
+    buttons[7][10].setLabel("S");
+    buttons[7][11].setLabel("E");
+    buttons[7][12].setLabel("!");
+    for (int i = 0; i < mines.size(); i++) {
+      mines.get(i).clicked = true;
+    }
 }
 public void displayWinningMessage()
 {
     //your code here
-    buttons[7][7].setLabel("Y");
+    buttons[7][4].setLabel("Y");
+    buttons[7][5].setLabel("O");
+    buttons[7][6].setLabel("U");
+    buttons[7][7].setLabel(" ");
+    buttons[7][8].setLabel("W");
+    buttons[7][9].setLabel("O");
+    buttons[7][10].setLabel("N");
+    buttons[7][11].setLabel("!");
 }
 public boolean isValid(int r, int c)
 {
@@ -116,6 +135,7 @@ public class MSButton
         }
         else if (mines.contains(this)) {
             displayLosingMessage();
+            noLoop();
         }
         else if (countMines(myRow,myCol) > 0) {
             setLabel(countMines(myRow,myCol));
@@ -137,9 +157,9 @@ public class MSButton
         else if( clicked && mines.contains(this) ) 
             fill(255,0,0);
         else if(clicked)
-            fill( 200 );
+            fill( 75, 237, 21 );
         else 
-            fill( 100 );
+            fill( 32, 81, 92 );
 
         rect(x, y, width, height);
         fill(0);
