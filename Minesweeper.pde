@@ -6,7 +6,7 @@ private ArrayList <MSButton> mines = new ArrayList <MSButton> ();; //ArrayList o
 
 void setup ()
 {
-    size(395, 395);
+    size(400, 400);
     textAlign(CENTER,CENTER);
     
     // make the manager
@@ -135,7 +135,7 @@ public class MSButton
         }
         else if (mines.contains(this)) {
             displayLosingMessage();
-            noLoop();
+            //noLoop();
         }
         else if (countMines(myRow,myCol) > 0) {
             setLabel(countMines(myRow,myCol));
